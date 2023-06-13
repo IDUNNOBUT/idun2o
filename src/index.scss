@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu&family=Yantramanav:wght@300&display=swap');
+
+/* reset css*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html {
+  background-color: #1E1E1E;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* reset css end*/
+
+:root {
+  --main: hsl(190, 96.1%, 20%);
+  --main-20: hsla(190, 96.1%, 20%, 20%);
+  --accent: hsl(28, 78.9%, 51.8%);
+  --second: hsl(38, 78.3%, 58.4%);
+  --text-back: hsl(0, 33.3%, 95.9%);
+  --text: hsl(0, 0%, 15.7%);
+  --padding-x: 0rem;
+
+  --red: hsl(1, 73%, 32%);
+  --blue: hsl(204, 99%, 32%);
+  --green: hsl(148, 30%, 32%);
+  --yellow: hsl(45, 100%, 40%);
+
+  @media screen and (max-width: 1220px) {
+    --padding-x: .5rem;
+  }
+}
+
+:root:has(.dark) {
+  --main: hsl(229, 18.9%, 21.8%);
+  --main-20: hsla(229, 18.9%, 21.8%, 20%);
+  --accent: hsl(19, 66.5%, 67.3%);
+  --text: hsl(0, 0%, 98.4%);
+  --text-back: hsl(218, 19.4%, 38.4%);
+  --second: hsl(149, 21.2%, 53.7%);
+}
+
+@supports (-moz-appearance:none) {
+  .wrapper.dark {
+    --main: hsl(229, 18.9%, 21.8%);
+    --main-20: hsla(229, 18.9%, 21.8%, 20%);
+    --accent: hsl(19, 66.5%, 67.3%);
+    --text: hsl(0, 0%, 98.4%);
+    --text-back: hsl(218, 19.4%, 38.4%);
+    --second: hsl(149, 21.2%, 53.7%);
+  }
+}
+
+html, body, #root {
+  min-height: 100dvh;
+}
+
+body {
+  background: linear-gradient(45deg, var(--main), var(--main-20));
+  background-size: 200%;
+  animation: gradient-animation 8s ease-in-out infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.svg-icon {
+  height: 2rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  transition: transform .3s ease-in-out;
+  cursor: pointer;
+
+  svg {
+    height: 100%;
+    width: 100%;
+
+    path {
+      transition: fill .3s ease;
+    }
+  }
+}
+
+.bg-pattern {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+    g {
+      transition: fill .3s ease;
+    }
+  }
+}
+
+.main__wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  color: var(--text);
+  padding: 0 var(--padding-x);
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
