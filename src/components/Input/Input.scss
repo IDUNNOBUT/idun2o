@@ -1,0 +1,18 @@
+.input {
+  outline: transparent;
+  border: none;
+  font-size: 1rem;
+  font-family: 'Yantramanav',sans-serif;
+  padding: 0.5rem .75rem;
+  border-radius: .625rem;
+  background-color: var(--text-back);
+  color: var(--text);
+  transition: box-shadow .3s ease-in-out, background-color .3s ease-in-out;
+  &:hover {
+    box-shadow: 0 .25rem 0 0 var(--second);
+  }
+  &:focus {
+    background-color: var(--second);
+    box-shadow: none;
+  }
+}

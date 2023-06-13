@@ -1,0 +1,59 @@
+.home__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.home__title {
+  color: var(--text-back);
+  font-size: 6rem;
+  margin-bottom: 0.25rem;
+}
+.home__desc {
+  font-size: 1.75rem;
+  font-family: "Ubuntu", sans-serif;
+  display: block;
+  background-color: var(--second);
+  padding: 0.75rem 1rem;
+  line-height: 1.4;
+  border-radius: 0.625rem;
+}
+.home .info__text {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-family: "Yantramanav", sans-serif;
+  padding: 0.75rem 1rem;
+  background-color: var(--text-back);
+  border-radius: 0.625rem;
+}
+.home .text__accent {
+  color: var(--accent);
+}
+.home__form {
+  position: relative;
+  isolation: isolate;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 576px) {
+  .home__info {
+    gap: 1.5rem;
+  }
+  .home__title {
+    font-size: 3rem;
+  }
+  .home__desc {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    padding: 0.5rem 0.75rem;
+  }
+  .home .info__text {
+    font-size: 1.25rem;
+    line-height: 1.1;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/*# sourceMappingURL=HomePage.css.map */

@@ -1,0 +1,47 @@
+.room__players {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.room__control {
+  font-size: 1rem;
+  font-family: "Ubuntu", sans-serif;
+  align-self: stretch;
+  justify-self: stretch;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+}
+.room__status {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media screen and (max-width: 576px) {
+  .room__status {
+    align-items: center;
+  }
+}
+.room .status__count, .room .status__code-info, .room .status__code {
+  flex-grow: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.625rem;
+  background-color: var(--text-back);
+}
+.room .status__code {
+  margin-top: 1rem;
+  font-size: 3rem;
+  background-color: var(--accent);
+}
+.room .status__button__icon {
+  transform: rotate(-90deg);
+}
+.room .status__button:hover .status__button__icon {
+  transform: rotate(-45deg);
+}
+
+/*# sourceMappingURL=WaitingRoomPage.css.map */

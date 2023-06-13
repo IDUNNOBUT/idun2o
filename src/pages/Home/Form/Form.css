@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.form__error {
+  font-size: 1rem;
+  font-family: "Yantramanav", sans-serif;
+  color: var(--accent);
+  margin: 0.5rem 0;
+}
+.form__error:before {
+  content: "! ";
+  font-weight: bold;
+}
+.form__toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--main);
+  border-radius: 0.625rem;
+}
+.form .toggle__left {
+  order: -1;
+}
+.form__label {
+  display: block;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+.form .switch ~ .toggle__left path {
+  fill: var(--accent);
+}
+.form .switch ~ .toggle__right path {
+  fill: var(--text);
+}
+.form .switch:checked ~ .toggle__left path {
+  fill: var(--text);
+}
+.form .switch:checked ~ .toggle__right path {
+  fill: var(--accent);
+}
+
+/*# sourceMappingURL=Form.css.map */

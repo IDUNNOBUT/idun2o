@@ -1,0 +1,192 @@
+.user-card {
+  font-family: "Yantramanav", sans-serif;
+  border-radius: .8rem;
+  aspect-ratio: 6/8;
+  align-items: center;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  gap: 1rem;
+  color: var(--text);
+  background-color: var(--text-back);
+  position: relative;
+  animation: mount .3s ease-in-out forwards;
+
+ &__cards-count{
+   z-index: 1;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 1rem;
+   position: absolute;
+   right: 0;
+   top:0;
+   padding: 0.2rem;
+   text-align: center;
+   border-radius: 0.25rem 0.625rem 0.25rem 0.25rem;
+   background-color: var(--accent);
+ }
+  &__host {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: auto;
+    top: -1rem;
+
+    svg path {
+      fill: var(--accent);
+    }
+  }
+
+  &__persona {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+
+    .svg-icon {
+      width: .8rem;
+      height: .8rem;
+      cursor: auto;
+    }
+  }
+
+  &__avatar {
+    width: 5rem;
+    position: relative;
+    aspect-ratio: 1/1;
+
+    img {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: border .3s ease-in-out;
+    }
+
+    .user-card__delete {
+      position: absolute;
+      inset: 0;
+      margin: auto auto;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+    }
+
+    &:before {
+      opacity: 0;
+      display: block;
+      content: '';
+    }
+
+    &:hover:has(.user-card__delete) {
+      &:before {
+        border-radius: 50%;
+        position: absolute;
+        background-color: var(--main-20);
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        transition: opacity .3s ease-in-out;
+      }
+
+      .user-card__delete {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.current-user {
+  .user-card {
+    &__name {
+      color: var(--accent)
+    }
+
+    &__avatar img {
+      border: 3px solid var(--accent);
+    }
+  }
+}
+
+@keyframes mount {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@media screen and (max-device-width: 768px),(max-height: 800px) {
+  .user-card {
+    font-size: .9rem;
+    gap: .5rem;
+
+    &__host {
+      width: 1.25rem;
+      height: 1.25rem;
+      top: -.5rem;
+    }
+    &__persona {
+      gap:.25rem;
+      .svg-icon {
+        width: .5rem;
+        height: .5rem;
+      }
+    }
+
+    &__avatar {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    .user-card {
+      &__avatar img {
+        border-width: 2px;
+      }
+    }
+  }
+}
+
+//@media screen and (max-device-width: 576px),(max-height: 500px) {
+//  .user-card {
+//    border-radius: .5rem;
+//    font-size: .75rem;
+//    padding: .25rem;
+//    gap: .5rem;
+//
+//    &__cards-count {
+//      font-size: .75rem;
+//      padding: .2rem .1rem;
+//      border-radius: 0.25rem 0.5rem 0.25rem 0.25rem;
+//    }
+//
+//    &__host {
+//      width: 1.25rem;
+//      height: 1.25rem;
+//      top: -.75rem;
+//    }
+//    &__persona {
+//      gap:.25rem;
+//      .svg-icon {
+//        width: .5rem;
+//        height: .5rem;
+//      }
+//    }
+//
+//    &__avatar {
+//      width: 3rem;
+//      height: 3rem;
+//    }
+//
+//    .user-card {
+//      &__avatar img {
+//        border-width: 2px;
+//      }
+//    }
+//  }
+//}

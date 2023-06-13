@@ -1,0 +1,54 @@
+.button {
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  gap: 0.5rem;
+  color: var(--text);
+  background-color: var(--accent);
+  outline: transparent;
+  border: none;
+  border-radius: 0.625rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+.button .svg-icon {
+  pointer-events: none;
+}
+.button .svg-icon path:first-child {
+  stroke-dasharray: 100;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+.button .svg-icon path:nth-child(2) {
+  transition: transform 0.3s ease-in-out;
+}
+.button:hover {
+  box-shadow: 0 0.25rem 0 0 var(--second);
+}
+.button:hover .svg-icon path:nth-child(2) {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(25%);
+}
+.button:hover .svg-icon path:first-child {
+  animation: circle 1s 0.3s linear forwards;
+}
+.button:active {
+  background-color: var(--second);
+}
+.button:disabled {
+  background: linear-gradient(90deg, var(--accent) 50%, var(--main) 50%);
+  background-size: 200%;
+  animation: gradient-animation 2s ease-in-out infinite;
+}
+@keyframes circle {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+/*# sourceMappingURL=Button.css.map */

@@ -1,0 +1,57 @@
+.room {
+  &__players {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  &__control {
+    font-size: 1rem;
+    font-family: "Ubuntu", sans-serif;
+    align-self: stretch;
+    justify-self: stretch;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+  }
+
+  &__status {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+    @media screen and (max-width: 576px) {
+      align-items: center;
+    }
+  }
+
+  .status {
+    &__count,
+    &__code-info,
+    &__code {
+      flex-grow: 0;
+      padding: .75rem 1rem;
+      border-radius: .625rem;
+      background-color: var(--text-back);
+    }
+
+    &__code {
+      margin-top: 1rem;
+      font-size: 3rem;
+      background-color: var(--accent);
+    }
+
+    &__button {
+      &__icon {
+        transform: rotate(-90deg);
+      }
+
+      &:hover .status__button__icon {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

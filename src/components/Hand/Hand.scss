@@ -1,0 +1,51 @@
+.hand {
+  &__wrapper {
+    grid-area: hand;
+    box-sizing: border-box;
+    display: grid;
+    grid-auto-flow: column;
+    gap:.5rem;
+    place-items: center;
+    .hand-button {
+      transition: opacity .3s ease-in-out;
+      svg path{
+        stroke: var(--accent);
+      }
+      svg path:last-child {
+        fill: var(--accent);
+      }
+      &_left {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__cards {
+    .card {
+      cursor: pointer;
+      animation: card-mount .3s ease-in-out forwards;
+      .svg-icon {
+        cursor: pointer;
+      }
+      &:hover {
+        transform: translateY(-20px);
+      }
+    }
+  }
+}
+.swiper{
+  width: 100%;
+  padding-top: 20px !important;
+}
+.swiper-button-disabled {
+  opacity: .5;
+}
+
+@keyframes card-mount {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+}
+  to {
+    opacity: 1;
+  }
+}

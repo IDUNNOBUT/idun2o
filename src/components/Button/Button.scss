@@ -1,0 +1,56 @@
+.button {
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  gap: .5rem;
+  color: var(--text);
+  background-color: var(--accent);
+  outline: transparent;
+  border: none;
+  border-radius: .625rem;
+  font-size: 1.5rem;
+  padding: .5rem 1.5rem;
+  cursor: pointer;
+  transition: box-shadow .3s ease-in-out, background-color .3s ease-in-out, background .3s ease-in-out;
+
+  .svg-icon {
+    pointer-events: none;
+    path:first-child {
+      stroke-dasharray: 100;
+      transform: rotate(90deg);
+      transform-origin: center;
+    }
+    path:nth-child(2) {
+      transition: transform .3s ease-in-out;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 .25rem 0 0 var(--second);
+    .svg-icon path:nth-child(2) {
+      transition: transform .3s ease-in-out;
+      transform: translateX(25%);
+    }
+    .svg-icon path:first-child {
+      animation: circle 1s .3s linear forwards;
+    }
+  }
+
+  &:active {
+    background-color: var(--second);
+  }
+  &:disabled {
+    background: linear-gradient(90deg, var(--accent) 50% , var(--main) 50%);
+    background-size: 200%;
+    animation: gradient-animation 2s ease-in-out infinite;
+  }
+  
+  @keyframes circle {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 100;
+    }
+  }
+}

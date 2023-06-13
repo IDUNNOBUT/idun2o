@@ -1,0 +1,36 @@
+.card-deck {
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: relative;
+  isolation: isolate;
+  background-color: var(--second);
+  grid-template-areas: ". . quantity" ". center ." ". . .";
+  transition: transform 0.3s ease-in-out;
+}
+.card-deck .deck__quantity {
+  padding: 0.25rem 0.3rem;
+  text-align: center;
+  align-self: start;
+  justify-self: stretch;
+  background-color: var(--text-back);
+  border-radius: 0.25rem 0.625rem 0.25rem 0.25rem;
+  grid-area: quantity;
+}
+.card-deck .deck__center {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+.card-deck:hover {
+  transform: rotate(5deg);
+}
+.card-deck:hover .deck__center {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .deck__quantity {
+    font-size: 1rem;
+  }
+}
+
+/*# sourceMappingURL=Deck.css.map */

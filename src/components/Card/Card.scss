@@ -1,0 +1,115 @@
+.card {
+  aspect-ratio: 2/3;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  border-radius: .625rem;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  max-height: 15rem;
+
+  &-center {
+    background-color: var(--text-back);
+    border-radius: .625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+    grid-area: center;
+  }
+}
+
+.game-card {
+  transition: transform .3s ease-in-out;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  grid-template-areas:
+    "top . ."
+    ". center ."
+    ". . bottom";
+
+  &__bg-pattern {
+    width: 200%;
+    height: 200%;
+    left: initial;
+    top: initial;
+  }
+
+  &__tag {
+    font-size: 1.25rem;
+    color: white;
+  }
+
+  .tag-top {
+    grid-area: top;
+  }
+
+  .tag-bottom {
+    grid-area: bottom;
+  }
+
+  &_blue {
+    background-color: var(--blue);
+  }
+
+  &_red {
+    background-color: var(--red);
+  }
+
+  &_yellow {
+    background-color: var(--yellow);
+  }
+
+  &_green {
+    background-color: var(--green);
+  }
+
+  &_black {
+    background-color: hsl(154, 13%, 11%);
+  }
+
+  .svg-icon {
+    cursor: auto;
+  }
+}
+
+.discard {
+  animation: drop-card .5s ease-in-out forwards;
+}
+
+@keyframes drop-card {
+  from {
+    opacity: 0;
+    transform: rotate3d(2, 0, -1, 45deg) translateX(-100px) translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate3d(1, 1, 1, 0deg) translateX(0) translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .card {
+    &-center {
+      width: 4rem;
+      height: 4rem;
+      font-size: 1.5rem;
+
+      .svg-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+  }
+  .game-card {
+    &__tag {
+      font-size: 1rem;
+    }
+  }
+}

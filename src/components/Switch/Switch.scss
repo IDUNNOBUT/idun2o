@@ -1,0 +1,24 @@
+.switch {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 3.5rem;
+  height: 1.5rem;
+  background-color: var(--text-back);
+  border-radius: .625rem;
+  position: relative;
+  padding: .25rem;
+  cursor: pointer;
+  &::after{
+    content: '';
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    width: 1rem;
+    background-color: var(--accent);
+    transition: transform .3s ease-in-out;
+  }
+  &:checked::after {
+    transform: translateX(200%);
+  }
+}

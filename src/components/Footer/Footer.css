@@ -1,0 +1,36 @@
+.footer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: max(15rem, 20dvh);
+}
+.footer__pattern {
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+  height: 100%;
+}
+.footer__pattern svg {
+  transform-origin: center;
+  width: 100%;
+}
+.footer .pattern_back svg path {
+  animation: footer-anim 5s ease-in-out alternate infinite;
+}
+.footer .pattern_front svg path {
+  animation: footer-anim 5s 0.4s ease-in-out alternate-reverse infinite;
+}
+
+@keyframes footer-anim {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-1.5rem);
+  }
+  100% {
+    transform: translateX(1.5rem);
+  }
+}
+
+/*# sourceMappingURL=Footer.css.map */

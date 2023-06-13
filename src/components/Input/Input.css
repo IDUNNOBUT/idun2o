@@ -1,0 +1,20 @@
+.input {
+  outline: transparent;
+  border: none;
+  font-size: 1rem;
+  font-family: "Yantramanav", sans-serif;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.625rem;
+  background-color: var(--text-back);
+  color: var(--text);
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.input:hover {
+  box-shadow: 0 0.25rem 0 0 var(--second);
+}
+.input:focus {
+  background-color: var(--second);
+  box-shadow: none;
+}
+
+/*# sourceMappingURL=Input.css.map */

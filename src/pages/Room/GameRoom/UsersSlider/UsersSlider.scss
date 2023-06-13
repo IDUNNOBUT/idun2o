@@ -1,0 +1,23 @@
+.users-slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap:.5rem;
+  place-items: center;
+  .swiper-slide {
+    flex-shrink: 1 !important;
+    flex-grow: 0 !important;
+    flex-basis: min-content;
+  }
+  &-button {
+    transition: opacity .3s ease-in-out;
+    svg path{
+      stroke: var(--accent);
+    }
+    svg path:last-child {
+      fill: var(--accent);
+    }
+    &_left {
+      transform: rotate(180deg);
+    }
+  }
+}

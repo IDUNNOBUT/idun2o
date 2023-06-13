@@ -1,0 +1,25 @@
+.users-slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  place-items: center;
+}
+.users-slider .swiper-slide {
+  flex-shrink: 1 !important;
+  flex-grow: 0 !important;
+  flex-basis: min-content;
+}
+.users-slider-button {
+  transition: opacity 0.3s ease-in-out;
+}
+.users-slider-button svg path {
+  stroke: var(--accent);
+}
+.users-slider-button svg path:last-child {
+  fill: var(--accent);
+}
+.users-slider-button_left {
+  transform: rotate(180deg);
+}
+
+/*# sourceMappingURL=UsersSlider.css.map */

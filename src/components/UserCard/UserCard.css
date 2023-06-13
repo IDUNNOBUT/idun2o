@@ -1,0 +1,132 @@
+.user-card {
+  font-family: "Yantramanav", sans-serif;
+  border-radius: 0.8rem;
+  aspect-ratio: 6/8;
+  align-items: center;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 1rem;
+  color: var(--text);
+  background-color: var(--text-back);
+  position: relative;
+  animation: mount 0.3s ease-in-out forwards;
+}
+.user-card__cards-count {
+  z-index: 1;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.2rem;
+  text-align: center;
+  border-radius: 0.25rem 0.625rem 0.25rem 0.25rem;
+  background-color: var(--accent);
+}
+.user-card__host {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: auto;
+  top: -1rem;
+}
+.user-card__host svg path {
+  fill: var(--accent);
+}
+.user-card__persona {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.user-card__persona .svg-icon {
+  width: 0.8rem;
+  height: 0.8rem;
+  cursor: auto;
+}
+.user-card__avatar {
+  width: 5rem;
+  position: relative;
+  aspect-ratio: 1/1;
+}
+.user-card__avatar img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: border 0.3s ease-in-out;
+}
+.user-card__avatar .user-card__delete {
+  position: absolute;
+  inset: 0;
+  margin: auto auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.user-card__avatar:before {
+  opacity: 0;
+  display: block;
+  content: "";
+}
+.user-card__avatar:hover:has(.user-card__delete):before {
+  border-radius: 50%;
+  position: absolute;
+  background-color: var(--main-20);
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+.user-card__avatar:hover:has(.user-card__delete) .user-card__delete {
+  visibility: visible;
+  opacity: 1;
+}
+
+.current-user .user-card__name {
+  color: var(--accent);
+}
+.current-user .user-card__avatar img {
+  border: 3px solid var(--accent);
+}
+
+@keyframes mount {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@media screen and (max-device-width: 768px), (max-height: 800px) {
+  .user-card {
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+  .user-card__host {
+    width: 1.25rem;
+    height: 1.25rem;
+    top: -0.5rem;
+  }
+  .user-card__persona {
+    gap: 0.25rem;
+  }
+  .user-card__persona .svg-icon {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  .user-card__avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .user-card .user-card__avatar img {
+    border-width: 2px;
+  }
+}
+
+/*# sourceMappingURL=UserCard.css.map */

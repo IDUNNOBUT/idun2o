@@ -1,0 +1,205 @@
+.game-field {
+  &__color-modal {
+    background-color: var(--text-back);
+    padding: 1rem;
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: grid;
+    width: 50%;
+    aspect-ratio: 1;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    place-items: center;
+    gap: 1rem;
+    border-radius: .625rem;
+    animation: modal .3s ease-in-out forwards;
+
+    .color-modal__header {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.5rem;
+      grid-column: 1/3;
+    }
+
+    .color {
+      border-radius: .625rem;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+
+      &_red {
+        background-color: var(--red);
+      }
+
+      &_blue {
+        background-color: var(--blue);
+      }
+
+      &_yellow {
+        background-color: var(--yellow);
+      }
+
+      &_green {
+        background-color: var(--green);
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    color: var(--text);
+    padding: 0 var(--padding-x);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    grid-template-areas:
+    "top top top"
+    "left center right"
+    "hand hand hand";
+  }
+  &__users-slider {
+    display: none !important;
+  }
+  &__container {
+    &-top {
+      grid-area: top;
+    }
+
+    &-left {
+      grid-area: left;
+      flex-direction: column-reverse;
+    }
+
+    &-right {
+      grid-area: right;
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    grid-area: center;
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    isolation: isolate;
+    overflow: hidden;
+
+    border-radius: .625rem;
+  }
+  &__content.reverse::before {
+    animation-direction: reverse;
+  }
+  &__content::before {
+    content:'';
+    z-index: -2;
+    display: block;
+    position: absolute;
+    background: linear-gradient(to top, #ffffff, #ffffff);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 200%;
+    height: 50%;
+    transform-origin: left top;
+    animation: rotate 20s linear infinite;
+    animation-direction: normal;
+  }
+  &__content:after{
+    z-index: -1;
+    content:'';
+    display: block;
+    position: absolute;
+    inset: .25rem;
+    border-radius: .625rem;
+    background: var(--main);
+  }
+  &__hand {
+    grid-area: hand;
+  }
+}
+
+.color-modal__overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background-color: rgba(68, 68, 68, 0.4);
+  animation: modal .3s ease-in-out forwards;
+}
+
+.game-result {
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0rem var(--padding-x);
+  }
+  &__header{
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    line-height: 1.4;
+    color: var(--text);
+    background-color: var(--second);
+    padding: .75rem 1rem;
+    border-radius: .625rem;
+    span {
+      color: var(--accent)
+    }
+  }
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .game-field {
+    &__wrapper {
+      gap: .75rem;
+    }
+  }
+}
+
+@media screen and (max-width: 576px),(max-height: 500px) {
+  .game-field {
+    &__wrapper {
+      gap: .75rem;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+    "top"
+    "center"
+    "hand";
+    }
+    &__container-top,&__container-left,&__container-right {
+      display: none !important;
+    }
+    &__users-slider {
+      display: grid !important;
+      grid-area: top;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
